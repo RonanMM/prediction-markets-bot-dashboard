@@ -301,16 +301,16 @@ price is a better forecast than anything we built — and we can now say that wi
 interval rather than a shrug.</p>
 
 <div class="stats">
-  <div class="stat"><div class="sv">0.1249</div><div class="sl">Market price</div>
+  <div class="stat"><div class="sv">0.1246</div><div class="sl">Market price</div>
     <div class="sn">Brier score — lower is better</div></div>
-  <div class="stat"><div class="sv">0.1539</div><div class="sl">Raw ensemble</div>
+  <div class="stat"><div class="sv">0.1532</div><div class="sl">Raw ensemble</div>
     <div class="sn">Physics forecast, uncalibrated</div></div>
-  <div class="stat"><div class="sv">0.1537</div><div class="sl">Our best model</div>
+  <div class="stat"><div class="sv">0.1531</div><div class="sl">Our best model</div>
     <div class="sn">Level with the physics; still behind the price</div></div>
-  <div class="stat"><div class="sv">+0.0251</div><div class="sl">Gap, with interval</div>
-    <div class="sn">95% CI [+0.0140, +0.0362] — real, not noise</div></div>
+  <div class="stat"><div class="sv">+0.0250</div><div class="sl">Gap, with interval</div>
+    <div class="sn">95% CI [+0.0139, +0.0361] — real, not noise</div></div>
 </div>
-<p class="note">The three Brier scores are measured on the 382 markets every forecaster
+<p class="note">The three Brier scores are measured on the 383 markets every forecaster
 priced; the gap beside them is measured on all 608, because the market-versus-model question
 does not need the ensemble and loses a third of the sample to insisting on it. Different
 denominators, on purpose, each labelled.</p>
@@ -371,7 +371,7 @@ is zero.</p>
   <p class="what">The live Polymarket price for each bin, taken as a probability. The thing we
   are trying to beat.</p>
   <div class="field"><span class="lbl">Score</span><div class="val">
-    <p>Brier <span class="num">0.1249</span> over the 382 markets every forecaster
+    <p>Brier <span class="num">0.1246</span> over the 383 markets every forecaster
     priced.</p></div></div>
   <div class="field"><span class="lbl">Why it's hard</span><div class="val">
     <p>Its prices turn out to be almost perfectly calibrated on exactly the bins our model
@@ -390,7 +390,7 @@ is zero.</p>
     Student-t distribution to the member spread and you have bin probabilities, with no
     learned parameters at all.</p></div></div>
   <div class="field"><span class="lbl">Score</span><div class="val">
-    <p>Brier <span class="num">0.1539</span> · CRPS <span class="num">1.0045</span> °C.</p></div></div>
+    <p>Brier <span class="num">0.1532</span> · CRPS <span class="num">1.0054</span> °C.</p></div></div>
   <div class="field"><span class="lbl">Significance</span><div class="val">
     <p><strong>This is the number that matters most in the entire report.</strong> It is what
     every model in Family A was built to improve on. A calibration layer that cannot beat the raw
@@ -398,8 +398,8 @@ is zero.</p>
   <div class="field"><span class="lbl">Standing</span><div class="val">
     <p>Measured properly — paired on each market, clustered by city-day — the calibrator is now
     <strong>level with</strong> the ensemble rather than behind it:
-    <span class="num">−0.0001</span>, interval <span class="num">[−0.0118, +0.0116]</span> over
-    382 markets and 178 city-days. The interval spans zero, so this is a draw,
+    <span class="num">−0.0001</span>, interval <span class="num">[−0.0120, +0.0118]</span> over
+    383 markets and 178 city-days. The interval spans zero, so this is a draw,
     not a win — but through July the same comparison ran clearly negative (0.171 against 0.159 on
     settlement-faithful labels), and retraining the calibrator on those labels closed it.</p>
     <p>That deserves flagging against <a href="#lessons">lesson 5</a>, which says every correction
@@ -874,7 +874,7 @@ likely ones. If temperature bins show it too, you can harvest it without any met
     <strong>1,760 independent bets</strong>.</p>
     <p><strong>It doesn't replicate.</strong> The breadth book (below) runs the same strategy
     across 49 cities and puts the identical band at
-    <span class="num">+0.0066</span> — and <em>flips the sign</em> of the sub-band that
+    <span class="num">+0.0077</span> — and <em>flips the sign</em> of the sub-band that
     looked strongest. Two samples disagreeing about which part carries the effect is what noise
     looks like.</p>
     <p>Both failures produced permanent amendments, and gates in this project only ever tighten.
@@ -912,13 +912,13 @@ likely ones. If temperature bins show it too, you can harvest it without any met
     per-city weather plumbing, no resolution anchors. It grades directly off how each market
     paid out.</p></div></div>
   <div class="field"><span class="lbl">Result</span><div class="val">
-    <p><span class="num">3347</span> settled shoulder contracts across 49
-    cities. Full band <span class="num">+0.0066</span> per contract, interval tight around
+    <p><span class="num">3613</span> settled shoulder contracts across 49
+    cities. Full band <span class="num">+0.0077</span> per contract, interval tight around
     zero. Decomposed by price band, the picture contradicts the 5-city story outright: the band
     that looked strongest there (25–35¢) is <em>negative</em> here, and bins priced near 30¢
     realise 30.2% — <strong>fairly priced</strong>, so selling them merely donates the spread and
-    fee. What survives is the moderate 10–25¢ sub-band, 1504 contracts at
-    <span class="num">+0.0215</span>, pre-registered and still short of the calendar its
+    fee. What survives is the moderate 10–25¢ sub-band, 1605 contracts at
+    <span class="num">+0.0213</span>, pre-registered and still short of the calendar its
     gate now demands.</p></div></div>
   <div class="field"><span class="lbl">Why the win rate can't be read on its own</span><div class="val">
     <p>This is a short-volatility payoff: it wins small and often and loses big and rarely. Over
@@ -930,7 +930,7 @@ likely ones. If temperature bins show it too, you can harvest it without any met
   <div class="field"><span class="lbl">Maker economics, re-measured</span><div class="val">
     <p>Polymarket charges makers nothing on weather and rebates 25% of collected taker fees, so
     resting orders looked like the obvious improvement. On the repaired fill detector the maker
-    edge is <strong>not established</strong>: full band <span class="num">−0.0253</span>
+    edge is <strong>not established</strong>: full band <span class="num">−0.0246</span>
     per filled contract, and at comparable liquidity the 5-city and breadth books read +0.056
     [−0.018, +0.129] and −0.007 [−0.028, +0.015] — both consistent with zero. Free fees do not
     manufacture an edge; they only stop subtracting one.</p></div></div>
@@ -950,7 +950,7 @@ likely ones. If temperature bins show it too, you can harvest it without any met
   that are winning, drop the ones that aren't.</p>
   <div class="field"><span class="lbl">What it looks like</span><div class="val">
     <p>Spectacular. Return on capital across all 49 cities is
-    <span class="num">+0.0066</span> per contract; keeping only the 31 cities with a
+    <span class="num">+0.0077</span> per contract; keeping only the 31 cities with a
     non-negative mean lifted it 2.8×, and keeping the best 12 lifted it 5.5×, from +0.80% to
     +4.38% on capital.</p></div></div>
   <div class="field"><span class="lbl">Why it is almost entirely fake</span><div class="val">
@@ -1130,8 +1130,8 @@ city-day once, the answer is unambiguous:</p>
   <caption>Pooled model-minus-market Brier gap · positive means the model is worse</caption>
   <thead><tr><th>Window</th><th class="n">Markets</th><th class="n">City-days</th><th class="n">Gap</th><th class="n">95% interval</th><th>Reading</th></tr></thead>
   <tbody>
-    <tr class="hi"><td>All</td><td class="n">608</td><td class="n">206</td><td class="n t-fail">+0.0251</td><td class="n">[+0.0140, +0.0362]</td><td class="t-fail">model measurably worse</td></tr>
-    <tr><td>Last 60</td><td class="n">60</td><td class="n">9</td><td class="n">+0.0282</td><td class="n">[−0.0023, +0.0588]</td><td>indistinguishable</td></tr>
+    <tr class="hi"><td>All</td><td class="n">608</td><td class="n">206</td><td class="n t-fail">+0.0250</td><td class="n">[+0.0139, +0.0361]</td><td class="t-fail">model measurably worse</td></tr>
+    <tr><td>Last 60</td><td class="n">60</td><td class="n">9</td><td class="n">+0.0270</td><td class="n">[−0.0048, +0.0588]</td><td>indistinguishable</td></tr>
   </tbody></table></div>
 
 <p>The whole interval sits above zero on the full record: this is a real gap, not sampling noise.
