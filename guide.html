@@ -301,14 +301,14 @@ price is a better forecast than anything we built — and we can now say that wi
 interval rather than a shrug.</p>
 
 <div class="stats">
-  <div class="stat"><div class="sv">0.1240</div><div class="sl">Market price</div>
+  <div class="stat"><div class="sv">0.1254</div><div class="sl">Market price</div>
     <div class="sn">Brier score — lower is better</div></div>
-  <div class="stat"><div class="sv">0.1497</div><div class="sl">Raw ensemble</div>
+  <div class="stat"><div class="sv">0.1508</div><div class="sl">Raw ensemble</div>
     <div class="sn">Physics forecast, uncalibrated</div></div>
-  <div class="stat"><div class="sv">0.1522</div><div class="sl">Our best model</div>
+  <div class="stat"><div class="sv">0.1540</div><div class="sl">Our best model</div>
     <div class="sn">Level with the physics; still behind the price</div></div>
-  <div class="stat"><div class="sv">+0.0252</div><div class="sl">Gap, with interval</div>
-    <div class="sn">95% CI [+0.0160, +0.0345] — real, not noise</div></div>
+  <div class="stat"><div class="sv">+0.0254</div><div class="sl">Gap, with interval</div>
+    <div class="sn">95% CI [+0.0161, +0.0346] — real, not noise</div></div>
 </div>
 <p class="note">The three Brier scores are measured on the 577 markets every forecaster
 priced; the gap beside them is measured on all 951, because the market-versus-model question
@@ -371,7 +371,7 @@ is zero.</p>
   <p class="what">The live Polymarket price for each bin, taken as a probability. The thing we
   are trying to beat.</p>
   <div class="field"><span class="lbl">Score</span><div class="val">
-    <p>Brier <span class="num">0.1240</span> over the 577 markets every forecaster
+    <p>Brier <span class="num">0.1254</span> over the 577 markets every forecaster
     priced.</p></div></div>
   <div class="field"><span class="lbl">Why it's hard</span><div class="val">
     <p>Its prices turn out to be almost perfectly calibrated on exactly the bins our model
@@ -390,7 +390,7 @@ is zero.</p>
     Student-t distribution to the member spread and you have bin probabilities, with no
     learned parameters at all.</p></div></div>
   <div class="field"><span class="lbl">Score</span><div class="val">
-    <p>Brier <span class="num">0.1497</span> · CRPS <span class="num">0.9252</span> °C.</p></div></div>
+    <p>Brier <span class="num">0.1508</span> · CRPS <span class="num">0.9181</span> °C.</p></div></div>
   <div class="field"><span class="lbl">Significance</span><div class="val">
     <p><strong>This is the number that matters most in the entire report.</strong> It is what
     every model in Family A was built to improve on. A calibration layer that cannot beat the raw
@@ -398,7 +398,7 @@ is zero.</p>
   <div class="field"><span class="lbl">Standing</span><div class="val">
     <p>Measured properly — paired on each market, clustered by city-day — the calibrator is now
     <strong>level with</strong> the ensemble rather than behind it:
-    <span class="num">+0.0026</span>, interval <span class="num">[−0.0076, +0.0127]</span> over
+    <span class="num">+0.0031</span>, interval <span class="num">[−0.0071, +0.0133]</span> over
     577 markets and 234 city-days. The interval spans zero, so this is a draw,
     not a win — but through July the same comparison ran clearly negative (0.171 against 0.159 on
     settlement-faithful labels), and retraining the calibrator on those labels closed it.</p>
@@ -860,8 +860,8 @@ likely ones. If temperature bins show it too, you can harvest it without any met
   longshots two or three degrees off the forecast centre.</p>
   <div class="field"><span class="lbl">Result</span><div class="val">
     <p>As it stands: <span class="num">678</span> settled contracts,
-    <span class="num">+0.003</span> per contract, 84% win rate — a return on the
-    capital actually laid out of <span class="num">+0.32%</span>, against a break-even win
+    <span class="num">+0.001</span> per contract, 84% win rate — a return on the
+    capital actually laid out of <span class="num">+0.14%</span>, against a break-even win
     rate of 83.9%. On 27 July, at 159 contracts and +0.036, it formally
     <strong>passed its pre-registered gate</strong> — the first thing in this project ever to
     do so.</p>
@@ -1130,8 +1130,8 @@ city-day once, the answer is unambiguous:</p>
   <caption>Pooled model-minus-market Brier gap · positive means the model is worse</caption>
   <thead><tr><th>Window</th><th class="n">Markets</th><th class="n">City-days</th><th class="n">Gap</th><th class="n">95% interval</th><th>Reading</th></tr></thead>
   <tbody>
-    <tr class="hi"><td>All</td><td class="n">951</td><td class="n">268</td><td class="n t-fail">+0.0252</td><td class="n">[+0.0160, +0.0345]</td><td class="t-fail">model measurably worse</td></tr>
-    <tr><td>Last 60</td><td class="n">60</td><td class="n">10</td><td class="n">+0.0103</td><td class="n">[−0.0086, +0.0292]</td><td>indistinguishable</td></tr>
+    <tr class="hi"><td>All</td><td class="n">951</td><td class="n">268</td><td class="n t-fail">+0.0254</td><td class="n">[+0.0161, +0.0346]</td><td class="t-fail">model measurably worse</td></tr>
+    <tr><td>Last 60</td><td class="n">60</td><td class="n">10</td><td class="n">+0.0126</td><td class="n">[−0.0057, +0.0308]</td><td>indistinguishable</td></tr>
   </tbody></table></div>
 
 <p>The whole interval sits above zero on the full record: this is a real gap, not sampling noise.
