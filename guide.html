@@ -217,7 +217,7 @@
   reasons why turned out to be more interesting than a win would have been.</p>
   <div class="mast-meta">
     <span>First compiled 28 July 2026 · figures current to 2026-08-14</span>
-    <span>5 cities · 956 graded markets</span>
+    <span>5 cities · 963 graded markets</span>
     <span>Status: forecasting book OFF</span>
   </div>
   <p class="livenote">Figures describing <em>where things stand</em> — sample sizes, Brier scores,
@@ -296,22 +296,22 @@ for each temperature bin, you should be able to spot bins the crowd has misprice
 
 <p>Every stage of that pipeline works. Data arrives hourly, models train, probabilities are
 served, bets are recorded and graded against how the markets really settled. The machinery is
-sound. <strong>The premise is what failed:</strong> across 956 graded markets, the crowd's
+sound. <strong>The premise is what failed:</strong> across 963 graded markets, the crowd's
 price is a better forecast than anything we built — and we can now say that with a confidence
 interval rather than a shrug.</p>
 
 <div class="stats">
-  <div class="stat"><div class="sv">0.1245</div><div class="sl">Market price</div>
+  <div class="stat"><div class="sv">0.1241</div><div class="sl">Market price</div>
     <div class="sn">Brier score — lower is better</div></div>
-  <div class="stat"><div class="sv">0.1504</div><div class="sl">Raw ensemble</div>
+  <div class="stat"><div class="sv">0.1502</div><div class="sl">Raw ensemble</div>
     <div class="sn">Physics forecast, uncalibrated</div></div>
   <div class="stat"><div class="sv">0.1529</div><div class="sl">Our best model</div>
     <div class="sn">Level with the physics; still behind the price</div></div>
-  <div class="stat"><div class="sv">+0.0253</div><div class="sl">Gap, with interval</div>
-    <div class="sn">95% CI [+0.0161, +0.0345] — real, not noise</div></div>
+  <div class="stat"><div class="sv">+0.0254</div><div class="sl">Gap, with interval</div>
+    <div class="sn">95% CI [+0.0163, +0.0346] — real, not noise</div></div>
 </div>
-<p class="note">The three Brier scores are measured on the 580 markets every forecaster
-priced; the gap beside them is measured on all 956, because the market-versus-model question
+<p class="note">The three Brier scores are measured on the 584 markets every forecaster
+priced; the gap beside them is measured on all 963, because the market-versus-model question
 does not need the ensemble and loses a third of the sample to insisting on it. Different
 denominators, on purpose, each labelled.</p>
 
@@ -371,7 +371,7 @@ is zero.</p>
   <p class="what">The live Polymarket price for each bin, taken as a probability. The thing we
   are trying to beat.</p>
   <div class="field"><span class="lbl">Score</span><div class="val">
-    <p>Brier <span class="num">0.1245</span> over the 580 markets every forecaster
+    <p>Brier <span class="num">0.1241</span> over the 584 markets every forecaster
     priced.</p></div></div>
   <div class="field"><span class="lbl">Why it's hard</span><div class="val">
     <p>Its prices turn out to be almost perfectly calibrated on exactly the bins our model
@@ -390,7 +390,7 @@ is zero.</p>
     Student-t distribution to the member spread and you have bin probabilities, with no
     learned parameters at all.</p></div></div>
   <div class="field"><span class="lbl">Score</span><div class="val">
-    <p>Brier <span class="num">0.1504</span> · CRPS <span class="num">0.9081</span> °C.</p></div></div>
+    <p>Brier <span class="num">0.1502</span> · CRPS <span class="num">0.9062</span> °C.</p></div></div>
   <div class="field"><span class="lbl">Significance</span><div class="val">
     <p><strong>This is the number that matters most in the entire report.</strong> It is what
     every model in Family A was built to improve on. A calibration layer that cannot beat the raw
@@ -398,8 +398,8 @@ is zero.</p>
   <div class="field"><span class="lbl">Standing</span><div class="val">
     <p>Measured properly — paired on each market, clustered by city-day — the calibrator is now
     <strong>level with</strong> the ensemble rather than behind it:
-    <span class="num">+0.0025</span>, interval <span class="num">[−0.0076, +0.0126]</span> over
-    580 markets and 235 city-days. The interval spans zero, so this is a draw,
+    <span class="num">+0.0028</span>, interval <span class="num">[−0.0073, +0.0128]</span> over
+    584 markets and 236 city-days. The interval spans zero, so this is a draw,
     not a win — but through July the same comparison ran clearly negative (0.171 against 0.159 on
     settlement-faithful labels), and retraining the calibrator on those labels closed it.</p>
     <p>That deserves flagging against <a href="#lessons">lesson 5</a>, which says every correction
@@ -859,7 +859,7 @@ likely ones. If temperature bins show it too, you can harvest it without any met
   <p class="what">Sell bins priced between 5¢ and 35¢ the day before — the plausible-looking
   longshots two or three degrees off the forecast centre.</p>
   <div class="field"><span class="lbl">Result</span><div class="val">
-    <p>As it stands: <span class="num">682</span> settled contracts,
+    <p>As it stands: <span class="num">689</span> settled contracts,
     <span class="num">+0.001</span> per contract, 84% win rate — a return on the
     capital actually laid out of <span class="num">+0.11%</span>, against a break-even win
     rate of 83.9%. On 27 July, at 159 contracts and +0.036, it formally
@@ -1130,8 +1130,8 @@ city-day once, the answer is unambiguous:</p>
   <caption>Pooled model-minus-market Brier gap · positive means the model is worse</caption>
   <thead><tr><th>Window</th><th class="n">Markets</th><th class="n">City-days</th><th class="n">Gap</th><th class="n">95% interval</th><th>Reading</th></tr></thead>
   <tbody>
-    <tr class="hi"><td>All</td><td class="n">956</td><td class="n">269</td><td class="n t-fail">+0.0253</td><td class="n">[+0.0161, +0.0345]</td><td class="t-fail">model measurably worse</td></tr>
-    <tr><td>Last 60</td><td class="n">60</td><td class="n">11</td><td class="n">+0.0123</td><td class="n">[−0.0064, +0.0309]</td><td>indistinguishable</td></tr>
+    <tr class="hi"><td>All</td><td class="n">963</td><td class="n">270</td><td class="n t-fail">+0.0254</td><td class="n">[+0.0163, +0.0346]</td><td class="t-fail">model measurably worse</td></tr>
+    <tr><td>Last 60</td><td class="n">60</td><td class="n">10</td><td class="n">+0.0183</td><td class="n">[+0.0017, +0.0349]</td><td>indistinguishable</td></tr>
   </tbody></table></div>
 
 <p>The whole interval sits above zero on the full record: this is a real gap, not sampling noise.
@@ -1196,7 +1196,7 @@ the sharpest number on the board — its participants are pricing that station e
 
 <h3>1 · The market is not a naive counterparty</h3>
 <p>The persistent assumption behind every model here was that crowd prices are sloppy and a
-proper physics-based forecast should beat them. On 956 markets the price beat every model,
+proper physics-based forecast should beat them. On 963 markets the price beat every model,
 every baseline, and every combination — in all five cities. Its prices are best calibrated precisely
 where we disagreed with them most.</p>
 
@@ -1306,7 +1306,7 @@ number is far more dangerous than an obvious blank.</p>
 
 <footer class="end">
   Raincheck · model post-mortem · first compiled 28 July 2026 · live figures regenerated
-  2026-08-14 · settlement-faithful grading on 956 markets · no real capital deployed
+  2026-08-14 · settlement-faithful grading on 963 markets · no real capital deployed
 </footer>
 
 </div>
