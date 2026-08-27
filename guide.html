@@ -307,8 +307,8 @@ interval rather than a shrug.</p>
     <div class="sn">Physics forecast, uncalibrated</div></div>
   <div class="stat"><div class="sv">0.1508</div><div class="sl">Our best model</div>
     <div class="sn">Level with the physics; still behind the price</div></div>
-  <div class="stat"><div class="sv">+0.0223</div><div class="sl">Gap, with interval</div>
-    <div class="sn">95% CI [+0.0137, +0.0309] — real, not noise</div></div>
+  <div class="stat"><div class="sv">+0.0221</div><div class="sl">Gap, with interval</div>
+    <div class="sn">95% CI [+0.0135, +0.0307] — real, not noise</div></div>
 </div>
 <p class="note">The three Brier scores are measured on the 789 markets every forecaster
 priced; the gap beside them is measured on all 1299, because the market-versus-model question
@@ -390,7 +390,7 @@ is zero.</p>
     Student-t distribution to the member spread and you have bin probabilities, with no
     learned parameters at all.</p></div></div>
   <div class="field"><span class="lbl">Score</span><div class="val">
-    <p>Brier <span class="num">0.1523</span> · CRPS <span class="num">0.8502</span> °C.</p></div></div>
+    <p>Brier <span class="num">0.1523</span> · CRPS <span class="num">0.8396</span> °C.</p></div></div>
   <div class="field"><span class="lbl">Significance</span><div class="val">
     <p><strong>This is the number that matters most in the entire report.</strong> It is what
     every model in Family A was built to improve on. A calibration layer that cannot beat the raw
@@ -1130,8 +1130,8 @@ city-day once, the answer is unambiguous:</p>
   <caption>Pooled model-minus-market Brier gap · positive means the model is worse</caption>
   <thead><tr><th>Window</th><th class="n">Markets</th><th class="n">City-days</th><th class="n">Gap</th><th class="n">95% interval</th><th>Reading</th></tr></thead>
   <tbody>
-    <tr class="hi"><td>All</td><td class="n">1299</td><td class="n">319</td><td class="n t-fail">+0.0223</td><td class="n">[+0.0137, +0.0309]</td><td class="t-fail">model measurably worse</td></tr>
-    <tr><td>Last 60</td><td class="n">60</td><td class="n">11</td><td class="n">+0.0305</td><td class="n">[+0.0119, +0.0491]</td><td>indistinguishable</td></tr>
+    <tr class="hi"><td>All</td><td class="n">1299</td><td class="n">319</td><td class="n t-fail">+0.0221</td><td class="n">[+0.0135, +0.0307]</td><td class="t-fail">model measurably worse</td></tr>
+    <tr><td>Last 60</td><td class="n">60</td><td class="n">11</td><td class="n">+0.0275</td><td class="n">[+0.0084, +0.0467]</td><td>indistinguishable</td></tr>
   </tbody></table></div>
 
 <p>The whole interval sits above zero on the full record: this is a real gap, not sampling noise.
